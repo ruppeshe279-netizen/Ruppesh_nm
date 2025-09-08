@@ -1,0 +1,52 @@
+// StudentPortfolioGUI.java
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class StudentPortfolioGUI extends JFrame implements ActionListener {
+    JButton aboutBtn, projectBtn, contactBtn;
+
+    public StudentPortfolioGUI() {
+        // Frame setup
+        setTitle("Ruppesh - Student Portfolio");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        // Buttons
+        aboutBtn = new JButton("About Me");
+        projectBtn = new JButton("Projects");
+        contactBtn = new JButton("Contact");
+
+        // Add action listeners
+        aboutBtn.addActionListener(this);
+        projectBtn.addActionListener(this);
+        contactBtn.addActionListener(this);
+
+        // Add buttons to frame
+        add(aboutBtn);
+        add(projectBtn);
+        add(contactBtn);
+
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == aboutBtn) {
+            JOptionPane.showMessageDialog(this,
+                "I am Ruppesh, a student passionate about coding,\n" +
+                "web development, and building creative projects.");
+        } else if (e.getSource() == projectBtn) {
+            JOptionPane.showMessageDialog(this,
+                "Projects:\n1. Personal Website (HTML + CSS)\n2. Student App (Java + Python)");
+        } else if (e.getSource() == contactBtn) {
+            JOptionPane.showMessageDialog(this,
+                "Contact Me:\nEmail: ruppesh@email.com\nGitHub: github.com/ruppesh");
+        }
+    }
+
+    public static void main(String[] args) {
+        new StudentPortfolioGUI();
+    }
+}
